@@ -1,0 +1,35 @@
+{% extends "inheritance.html" %}
+
+{% block body %}
+    <style>
+        h3 {color:#fff;}
+        button {color: #fff;}
+    </style>
+    <div class= "container">
+        <div class= "row">
+            <div class= "col">
+                <h3>UPLOAD AN IMAGE</h3>
+                <hr>
+                <div>
+
+                </div>
+                {% from "includes/_formhelpers.html" import render_field %}
+                <form action = "/upload-image" method= "POST" enctype= "multipart/form-data">
+                    <dl class= "text-white">
+                    {{ render_field(form.image_title, class= "form-control") }}
+                     <div class="form-group">
+                        <label>Select image</label>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" name="image" id="image">
+                            <label class="custom-file-label" for="image">Select image...</label>
+                        </div>
+                    </div>
+
+                    <button type= "sumbit" class= "btn btn-outline-light">Upload the image</button>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+{% endblock body %}

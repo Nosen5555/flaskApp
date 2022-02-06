@@ -1,0 +1,39 @@
+{% extends "inheritance.html" %}
+
+{% block body %}
+    <div class= "container">
+        <style>
+            h3{color: #fff;}
+            hr{color: #fff;}
+            p{color:#fff;}
+            img.center {display: block;margin: 0 auto;}
+            video {width: 100%;}
+        </style>
+        {% if content %}
+            {% if content.isitimage == 'yes'%}
+                <div class= "container">
+                    <h3>{{content.post_title}}</h3>
+                    <p>by {{content.posted_by}}</p>
+                    <hr>
+                    <img style="float:center", src= {{content.post_location}} ,width= "1080", height= "1080">
+                </div>
+            {% else %}
+                {% if content.isitvideo == 'yes' %}
+                    <div>
+                        <h3>{{content.post_title}}</h3>
+                        <p>by {{content.posted_by}}</p>
+                        <hr>
+                        <video src={{content.post_location}} width="1280" height="720" controls >
+                    </div>
+                {% else %}
+                    <h3>{{content.post_title}}</h3>
+                    <p>by {{content.posted_by}}</p>
+                    <hr>
+                    <p>{{content.post_content| safe}}</p>
+                {% endif %}
+            {% endif %}
+        {% else %}
+            <div class= "alert alert-warning">YOU CHOSE THE WRONG POST FOOL!</div>
+        {% endif %}
+    </div>
+{% endblock body %}

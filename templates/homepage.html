@@ -1,0 +1,30 @@
+{% include "inheritance.html" %}
+
+{% block body %}
+    <style>
+        h3{ color: #fff;}
+        p { color: #fff;}
+        hr { color: #fff;}
+        .list-group-item{background: #202020;}
+    </style>
+    <div class= "container" style="text-color:white;">
+            <h3 style= "text-color:white;">HOMEPAGE</h3>
+            <p style = "font-family: courier; font-size: 90%;">{{random_message}}</p>
+            <hr>
+        <div class= "text-center">
+            <p style="font-family:courier; font-size: 200%;">Welcome to the CoN.v1!</p>
+            <p style="font-family:courier; font-size: 130%;">You're safe here!</p>
+        </div>
+    </div>
+    <div class= "container">
+        {% if articles %}
+        <ul class="list-group">
+            {% for article in articles[::-1] %}
+                <li class="list-group-item"><a href= "/post/{{article.post_id}}">{{article.post_title}}</a></li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <div class= "alert alert-danger">There are no post yet!</div>
+        {% endif %}
+    </div>
+{% endblock body %}

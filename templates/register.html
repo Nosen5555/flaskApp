@@ -1,0 +1,21 @@
+{% include "inheritance.html" %}
+
+{% block body %}
+   <div class= "container">
+      <h3>REGISTER</h3>
+      <hr>
+      {% from "includes/_formhelpers.html" import render_field %}
+      <form method= "post">
+         <dl>
+         {{ render_field(form.nickname, class= "form-control") }}
+         {{ render_field(form.password, class= "form-control") }}
+         {{ render_field(form.password_confirm, class= "form-control")}}
+         {{ render_field(form.friend_code, class= "form-control")}}
+
+         <button class="btn btn-outline-light">Register!</button>
+
+         <a style= "float:right" href="/">Have an account? Login!</a>
+
+      </form>
+   <div>
+{% endblock body %}

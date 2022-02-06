@@ -1,0 +1,14 @@
+{% extends "inheritance.html" %}
+
+{% block body %}
+    <div class= "container">
+    <h3>CREATE A FRIEND CODE</h3>
+    <hr>
+    {% from "includes/_formhelpers.html" import render_field %}
+    <form method= "post">
+    <dl>
+    {{render_field(form.code, class= "form-control")}}
+    <button class = "btn btn-outline-light">Create!</button>
+    </form>
+    </div>
+{% endblock body %}
